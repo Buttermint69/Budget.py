@@ -70,11 +70,6 @@ class Category:
         else:
             return False
 
-
-expected = "Percentage spent by category\n100|          \n 90|          \n 80|          \n 70|    o     \n 60|    o     \n 50|    o     \n 40|    o     \n 30|    o     \n 20|    o  o  \n 10|    o  o  \n  0| o  o  o  \n    ----------\n     B  F  E  \n     u  o  n  \n     s  o  t  \n     i  d  e  \n     n     r  \n     e     t  \n     s     a  \n     s     i  \n           n  \n           m  \n           e  \n           n  \n           t  "
-
-
-# print(expected)
 def create_spend_chart(a):
 
     tot_ = [j["amount"] for i in a for j in i.ledger if j["amount"] < 0]
@@ -106,19 +101,3 @@ def create_spend_chart(a):
         else:
             string += " "
     return string
-
-
-food = Category("food")
-entertainment = Category("entertainment")
-business = Category("business")
-
-food.deposit(900, "deposit")
-entertainment.deposit(900, "deposit")
-business.deposit(900, "deposit")
-food.withdraw(105.55)
-entertainment.withdraw(33.40)
-business.withdraw(10.99)
-# print(food,"\n", business,"\n" )
-print(create_spend_chart([business, food, entertainment]), "\n", expected)
-
-#a = create_spend_chart([business, food, entertainment])
